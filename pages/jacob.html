@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jacob Njoku - Profile | WYN Management</title>
+  <link rel="icon" href="../assets/images/jacob.jpg" />
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; color:#fff; background: linear-gradient(135deg,#000,#1a1a1a); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
+    .header { display:flex; align-items:center; gap:20px; border-bottom:2px solid #444; padding-bottom:20px; }
+    .avatar { width: 180px; height: 180px; border-radius: 12px; background-size: cover; background-position:center; border:3px solid #fff; }
+    h1 { margin:0; font-size: 2rem; }
+    .meta { color:#ccc; margin-top:8px; }
+    .grid { display:grid; grid-template-columns: 1fr; gap:24px; margin-top:24px; }
+    .card { background: linear-gradient(145deg,#1a1a1a,#2a2a2a); border:1px solid #333; border-radius:12px; padding:20px; }
+    .card h2 { margin-top:0; font-size:1.2rem; color:#e6e6e6; }
+    ul { margin:0; padding-left: 18px; }
+    a.btn { display:inline-block; padding:10px 14px; border-radius:8px; background:#fff; color:#000; text-decoration:none; font-weight:bold; }
+    .media { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:10px; }
+    .media iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+    .nav { display:flex; gap:10px; margin-top:10px; }
+    .back { color:#fff; text-decoration:none; border:1px solid #fff; padding:8px 12px; border-radius:8px; }
+    table.stats { width:100%; border-collapse: collapse; margin-top:10px; }
+    table.stats th, table.stats td { border:1px solid #444; padding:8px 10px; text-align:left; }
+    table.stats th { background:#111; color:#e6e6e6; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav aria-label="breadcrumb" style="margin-bottom:12px;">
+      <a class="back" href="../index.html">Home</a>
+      <span style="margin:0 6px;color:#888;">›</span>
+      <span style="color:#bbb;">Profiles</span>
+      <span style="margin:0 6px;color:#888;">›</span>
+      <span style="color:#fff;">Jacob Njoku</span>
+    </nav>
+    <div class="header">
+      <div class="avatar" style="background-image:url('../assets/images/jacob_profile.png');"></div>
+      <div>
+        <h1>Jacob Njoku</h1>
+        <div class="meta">Born: 16 Nov 1997 • Position: Forward • Nationality: Nigeria</div>
+        <div class="nav">
+          <a class="btn" href="https://www.transfermarkt.com/jacob-njoku/leistungsdaten/spieler/452336" target="_blank">Transfermarkt</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Profile & Prowess</h2>
+        <p>
+          Jacob Njoku is a Nigerian professional forward known for explosive movement, clinical finishing, and strong hold-up play. He has featured in Malaysian football with Sabah FA and Kelantan United, and currently plays for Kasuka FC (Brunei, joined Aug 2025). His instincts in the box and work-rate make him a consistent goal threat.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Clubs Played</h2>
+        <ul>
+          <li>Kasuka FC (Brunei) — 2025–present</li>
+          <li>Kelantan United (Malaysia)</li>
+          <li>Sabah FA (Malaysia)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Key Statistics (latest)</h2>
+        <ul>
+          <li>ASEAN Club Championship Qualifiers (2025): Appearances — 2</li>
+          <li>AFC Challenge League Qualifying (2025): Appearances — 1</li>
+          <li>Latest notable match (Aug 2025, Kasuka vs DH Cebu): Goals — 2</li>
+          <li>Malaysia Super League (2022): Appearances — 2</li>
+          <li>Malaysia FA Cup (2021): Appearances — 2</li>
+          <li>Piala Malaysia (2021): Appearances — 1</li>
+          <li>Israel — Ligat ha'Al (2016): Appearances — 6</li>
+          <li>Israel — Liga Leumit (season on profile): Appearances — 22</li>
+        </ul>
+        <p style="color:#aaa; font-size:0.95em;">
+          Source: <a href="https://www.transfermarkt.com/jacob-njoku/leistungsdaten/spieler/452336" target="_blank" style="color:#9ad;">Transfermarkt (Detailed)</a>
+        </p>
+
+        <h3 style="margin-top:16px;">Season & Career Totals (table)</h3>
+        <table class="stats">
+          <thead>
+            <tr>
+              <th>Competition / Season</th>
+              <th>Club</th>
+              <th>Apps</th>
+              <th>Goals</th>
+              <th>Assists</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ASEAN Club Championship Qualifiers (2025)</td>
+              <td>Kasuka FC</td>
+              <td id="accq_apps">2</td>
+              <td id="accq_goals">—</td>
+              <td id="accq_assists">—</td>
+            </tr>
+            <tr>
+              <td>AFC Challenge League Qualifying (2025)</td>
+              <td>Kasuka FC</td>
+              <td id="achq_apps">1</td>
+              <td id="achq_goals">—</td>
+              <td id="achq_assists">—</td>
+            </tr>
+            <tr>
+              <td>Malaysia Super League (2022)</td>
+              <td>Kelantan United / Sabah</td>
+              <td id="mys1_apps">2</td>
+              <td id="mys1_goals">—</td>
+              <td id="mys1_assists">—</td>
+            </tr>
+            <tr>
+              <td>Malaysia FA Cup (2021)</td>
+              <td>Kelantan United</td>
+              <td id="mysp_apps">2</td>
+              <td id="mysp_goals">—</td>
+              <td id="mysp_assists">—</td>
+            </tr>
+            <tr>
+              <td>Piala Malaysia (2021)</td>
+              <td>Kelantan United</td>
+              <td id="myc1_apps">1</td>
+              <td id="myc1_goals">—</td>
+              <td id="myc1_assists">—</td>
+            </tr>
+            <tr>
+              <td>Ligat ha'Al (2016)</td>
+              <td>Israel (club per season)</td>
+              <td id="isr1_apps">6</td>
+              <td id="isr1_goals">—</td>
+              <td id="isr1_assists">—</td>
+            </tr>
+            <tr>
+              <td>Liga Leumit (season on profile)</td>
+              <td>Israel (club per season)</td>
+              <td id="isr2_apps">22</td>
+              <td id="isr2_goals">—</td>
+              <td id="isr2_assists">—</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="color:#aaa; font-size:0.9em; margin-top:8px;">Goal/assist figures will be filled as soon as Transfermarkt publishes them per row.</p>
+      </div>
+
+      <div class="card">
+        <h2>Career Totals (highlights)</h2>
+        <ul>
+          <li>Total competitive appearances (selected competitions): 33+</li>
+          <li>Latest braces: Aug 2025 — Kasuka vs DH Cebu (2 goals)</li>
+          <li>Primary positions: Centre Forward, Second Striker</li>
+        </ul>
+        <p style="color:#aaa; font-size:0.95em;">
+          Source: <a href="https://www.transfermarkt.com/jacob-njoku/leistungsdaten/spieler/452336" target="_blank" style="color:#9ad;">Transfermarkt</a>
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Career Timeline</h2>
+        <ul>
+          <li>Aug 2025 — Transfers to Kasuka FC (Brunei)</li>
+          <li>2021–2022 — Kelantan United (Malaysia); Malaysia Cup & FA Cup appearances</li>
+          <li>2019–2020 — Sabah (Malaysia)</li>
+          <li>2018 — Merani Martvili / Erovnuli Liga appearances</li>
+          <li>2016 — Hapoel Ashkelon / Hapoel Tel Aviv (Israel top flight appearances)</li>
+        </ul>
+        <p style="color:#aaa; font-size:0.95em;">Timeline synthesized from Transfermarkt profile pages and competitions listed.</p>
+      </div>
+
+      <div class="card">
+        <h2>Highlights</h2>
+        <div class="media">
+          <iframe src="https://www.youtube.com/embed/uW6rP0mooS0" title="Jacob Njoku Highlights" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Honors</h2>
+        <ul>
+          <li>—</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Notable Matches</h2>
+        <ul>
+          <li>Aug 2025 — Kasuka FC 2–1 DH Cebu (Shopee Cup Play-off): Scored a brace
+            <a href="https://aseanutdfc.com/public/asean-club-championship/2025/news/shopee-cup-2025-26-play-offs-report-kasuka-fc-2-1-dh-cebu-fc" target="_blank" style="color:#9ad;">[Report]</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Instagram handle removed by request -->
+
+      <div class="card">
+        <h2>Management Contact</h2>
+        <p>For trials, media, and sponsorships, contact WYN Management.</p>
+        <a class="btn" href="../pages/contact.html">Go to Contact</a>
+      </div>
+    </div>
+  </div>
+  
+  <footer style="background: linear-gradient(145deg,#1a1a1a,#2a2a2a); border-top: 2px solid #444; padding: 20px; text-align: center; margin-top: 40px; color: #ccc;">
+    © 2025 WYN Management. Elite Talent Management Excellence and Consulting.<br>
+    Leadership: Hope Ukpai {SirHope} and Aisha Sambo {SHUSHI}.
+  </footer>
+</body>
+</html>
+<script>
+  // Auto-fill from KV-backed cache (fast) with live fallback
+  (async function(){
+    try {
+      const res = await fetch('/api/stats-cache?player=jacob');
+      const js = await res.json();
+      const d = (js?.data?.competitions) || (js?.data) || {};
+      const map = {
+        accq: d.accq_2025,
+        achq: d.achq_2025,
+        mys1: d.mys1_2022,
+        mysp: d.mysp_2021,
+        myc1: d.myc1_2021,
+        isr1: d.isr1_2016,
+        isr2: d.isr2_misc
+      };
+      Object.entries(map).forEach(([k, v]) => {
+        if (!v) return;
+        const apps = document.getElementById(`${k}_apps`);
+        const goals = document.getElementById(`${k}_goals`);
+        const assists = document.getElementById(`${k}_assists`);
+        if (apps && typeof v.apps === 'number') apps.textContent = v.apps;
+        if (goals && v.goals != null) goals.textContent = v.goals;
+        if (assists && v.assists != null) assists.textContent = v.assists;
+      });
+    } catch (e) { /* silent */ }
+  })();
+</script>

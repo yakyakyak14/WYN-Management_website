@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oscar Onyeka - Profile | WYN Management</title>
+  <link rel="icon" href="../assets/images/oscar.jpg" />
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; color:#fff; background: linear-gradient(135deg,#000,#1a1a1a); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
+    .header { display:flex; align-items:center; gap:20px; border-bottom:2px solid #444; padding-bottom:20px; }
+    .avatar { width: 180px; height: 180px; border-radius: 12px; background-size: cover; background-position:center; border:3px solid #fff; }
+    h1 { margin:0; font-size: 2rem; }
+    .meta { color:#ccc; margin-top:8px; }
+    .grid { display:grid; grid-template-columns: 1fr; gap:24px; margin-top:24px; }
+    .card { background: linear-gradient(145deg,#1a1a1a,#2a2a2a); border:1px solid #333; border-radius:12px; padding:20px; }
+    .card h2 { margin-top:0; font-size:1.2rem; color:#e6e6e6; }
+    ul { margin:0; padding-left: 18px; }
+    a.btn { display:inline-block; padding:10px 14px; border-radius:8px; background:#fff; color:#000; text-decoration:none; font-weight:bold; }
+    .media { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:10px; }
+    .media iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+    .nav { display:flex; gap:10px; margin-top:10px; }
+    .back { color:#fff; text-decoration:none; border:1px solid #fff; padding:8px 12px; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav aria-label="breadcrumb" style="margin-bottom:12px;">
+      <a class="back" href="../index.html">Home</a>
+      <span style="margin:0 6px;color:#888;">›</span>
+      <span style="color:#bbb;">Profiles</span>
+      <span style="margin:0 6px;color:#888;">›</span>
+      <span style="color:#fff;">Oscar Onyeka</span>
+    </nav>
+    <div class="header">
+      <div class="avatar" style="background-image:url('../assets/images/oscar_profile.png');"></div>
+      <div>
+        <h1>Oscar Onyeka</h1>
+        <div class="meta">Position: Attacking Winger (11) • Club: Kasuka FC (joined 29 Aug 2025)</div>
+        <div class="nav">
+          <!-- Social buttons removed by request -->
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Profile & Prowess</h2>
+        <p>
+          Oscar is a rapid, skillful attacking winger whose creativity and acceleration draw stylistic comparisons to Neymar — with added emphasis on straight‑line speed and end‑product accuracy. After finalizing his move on 29 August 2025, he joined Jacob Njoku at Kasuka FC to strengthen their wide threat and transitional play.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Next Moves</h2>
+        <ul>
+          <li>Embed into Kasuka FC's first team on the left flank (No. 11).</li>
+          <li>Focus on one‑v‑one take‑ons, chance creation, and final‑third efficiency.</li>
+          <li>Build chemistry with forwards for cut‑backs and far‑post runs.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Career Timeline</h2>
+        <ul>
+          <li>Aug 2025 — Transfers to Kasuka FC (Brunei), joins Jacob Njoku</li>
+          <li>2024–2025 — Development phase and trials (youth to pro transition)</li>
+          <li>— Earlier youth career entries can be added here on confirmation —</li>
+        </ul>
+        <p style="color:#aaa; font-size:0.95em;">Will be updated as official match data and club history are published.</p>
+      </div>
+
+      <div class="card">
+        <h2>Key Targets (Season)</h2>
+        <ul>
+          <li>Goal contributions (G+A): —</li>
+          <li>Successful dribbles per 90: —</li>
+          <li>Chances created per 90: —</li>
+        </ul>
+        <p style="color:#aaa; font-size:0.95em;">Figures will be populated as match data becomes available.</p>
+      </div>
+
+      <!-- Instagram handle removed by request -->
+
+      <div class="card">
+        <h2>Key Statistics (latest)</h2>
+        <ul>
+          <li>Appearances (season): <span id="os_apps">—</span></li>
+          <li>Goals (season): <span id="os_goals">—</span></li>
+          <li>Assists (season): <span id="os_assists">—</span></li>
+          <li>Minutes played: <span id="os_minutes">—</span></li>
+        </ul>
+        <p style="color:#aaa; font-size:0.95em;">Will be auto-populated as official data is available.</p>
+      </div>
+    </div>
+  </div>
+  
+  <footer style="background: linear-gradient(145deg,#1a1a1a,#2a2a2a); border-top: 2px solid #444; padding: 20px; text-align: center; margin-top: 40px; color: #ccc;">
+    © 2025 WYN Management. Elite Talent Management Excellence and Consulting.<br>
+    Leadership: Hope Ukpai {SirHope} and Aisha Sambo {SHUSHI}.
+  </footer>
+</body>
+</html>
+<script>
+  // Auto-fill from KV-backed cache (fast) with live fallback
+  (async function(){
+    try {
+      const res = await fetch('/api/stats-cache?player=oscar');
+      const js = await res.json();
+      const d = (js?.data?.competitions?.season) || (js?.data?.competitions) || (js?.data) || {};
+      if (typeof d.apps === 'number') document.getElementById('os_apps').textContent = d.apps;
+      if (typeof d.goals === 'number') document.getElementById('os_goals').textContent = d.goals;
+      if (typeof d.assists === 'number') document.getElementById('os_assists').textContent = d.assists;
+      if (typeof d.minutes === 'number') document.getElementById('os_minutes').textContent = d.minutes;
+    } catch(e) { /* no-op */ }
+  })();
+</script>
