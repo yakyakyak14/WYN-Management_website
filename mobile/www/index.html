@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>WYN Management - Elite Talent Management</title>
+    
+    <!-- Cordova Scripts -->
+    <script type="text/javascript" src="cordova.js"></script>
+    
+    <!-- Vercel Speed Insights -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.debug.js"></script>
+    
+    <!-- App Styles -->
+    <link rel="stylesheet" href="css/app.css">
+    
+    <style>
+        /* Mobile App Specific Styles */
+        body {
+            -webkit-touch-callout: none;
+            -webkit-text-size-adjust: none;
+            -webkit-user-select: none;
+            background-color: #000000;
+            background-attachment: fixed;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .app-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .status-bar-spacer {
+            height: env(safe-area-inset-top);
+            background-color: #000000;
+        }
+        
+        .content-wrapper {
+            height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* App Loading Screen */
+        .app-loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .app-loading.hidden {
+            display: none;
+        }
+        
+        .loading-logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #333;
+            border-top: 3px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- App Loading Screen -->
+    <div class="app-loading" id="appLoading">
+        <div class="loading-logo">WYN</div>
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- Main App Container -->
+    <div class="app-container" id="appContainer" style="display: none;">
+        <div class="status-bar-spacer"></div>
+        <div class="content-wrapper" id="contentWrapper">
+            <!-- Content will be loaded here -->
+        </div>
+    </div>
+    
+    <!-- App JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+</html>

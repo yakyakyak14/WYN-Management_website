@@ -1,0 +1,23 @@
+# This is a placeholder for the app icon
+# You'll need to create actual PNG icon files in various sizes:
+# 
+# Android Icons:
+# - 36x36 (ldpi)
+# - 48x48 (mdpi) 
+# - 72x72 (hdpi)
+# - 96x96 (xhdpi)
+# - 144x144 (xxhdpi)
+# - 192x192 (xxxhdpi)
+#
+# iOS Icons:
+# - 57x57, 114x114 (iPhone)
+# - 40x40, 80x80, 120x120 (iPhone)
+# - 50x50, 100x100 (iPad)
+# - 60x60, 120x120, 180x180 (iPhone)
+# - 72x72, 144x144 (iPad)
+# - 76x76, 152x152 (iPad)
+# - 167x167 (iPad Pro)
+# - 29x29, 58x58, 87x87 (Settings)
+#
+# Use your existing logo/branding to create these icons
+# Recommended: Use a tool like cordova-res to generate all sizes automatically

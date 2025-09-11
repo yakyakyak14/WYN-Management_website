@@ -1,0 +1,51 @@
+{
+  "name": "wyn-management-app",
+  "displayName": "WYN Management",
+  "version": "1.0.0",
+  "description": "Elite Talent Management mobile application",
+  "main": "index.js",
+  "scripts": {
+    "build": "cordova build",
+    "build-android": "cordova build android",
+    "build-ios": "cordova build ios",
+    "run-android": "cordova run android",
+    "run-ios": "cordova run ios",
+    "prepare": "cordova prepare",
+    "clean": "cordova clean",
+    "create-android": "cordova platform add android",
+    "create-ios": "cordova platform add ios",
+    "generate-icons": "cordova-res android --skip-config --copy && cordova-res ios --skip-config --copy"
+  },
+  "keywords": [
+    "talent management",
+    "sports management",
+    "football",
+    "mobile app",
+    "cordova"
+  ],
+  "author": "WYN Management",
+  "license": "MIT",
+  "devDependencies": {
+    "cordova": "^12.0.0",
+    "cordova-android": "^12.0.0",
+    "cordova-ios": "^7.0.0",
+    "cordova-res": "^0.15.4"
+  },
+  "cordova": {
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-network-information": {}
+    }
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
