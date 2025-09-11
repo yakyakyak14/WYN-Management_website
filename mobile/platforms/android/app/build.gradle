@@ -19,19 +19,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
         }
         debug {
             debuggable true
-        }
-    }
-    
-    signingConfigs {
-        release {
-            storeFile file('wyn-management-release-key.keystore')
-            storePassword 'wynmanagement2025'
-            keyAlias 'wyn-management-key'
-            keyPassword 'wynmanagement2025'
         }
     }
     

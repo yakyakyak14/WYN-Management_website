@@ -9,6 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>WYN Management - Elite Talent Management</title>
     <!-- Deployed via Cascade: trigger Vercel redeploy at 2025-09-08T18:47:40+01:00 -->
+    <link rel="icon" href="assets/images/wyn-logo.png" />
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -115,6 +116,31 @@
             border-radius: 5px;
             font-size: 1.2em;
             transition: all 0.3s ease;
+        }
+
+        /* Brand logo (top-left) */
+        .site-brand {
+            position: fixed;
+            top: 18px;
+            left: 70px; /* offset so it doesn't clash with the menu toggle */
+            z-index: 2001;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .site-brand img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 6px;
+            border: 1px solid #ffffff55;
+            background: #000000aa;
+        }
+        .site-brand .brand-text {
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 0.5px;
         }
 
         .menu-toggle:hover {
@@ -733,6 +759,11 @@
     
     <!-- Menu Toggle -->
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <!-- Brand Logo (links to home) -->
+    <a class="site-brand" href="index.html" aria-label="WYN Management Home">
+        <img src="assets/images/wyn-logo.png" alt="WYN logo" />
+        <span class="brand-text">WYN MANAGEMENT</span>
+    </a>
     
     <!-- Side Menu -->
     <nav class="side-menu" id="sideMenu">
