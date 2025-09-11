@@ -18,13 +18,22 @@ REM Clean previous builds
 echo Cleaning previous builds...
 if exist "app\build" rmdir /s /q "app\build"
 
+REM Check if Gradle is available
+where gradle >nul 2>&1
+if %ERRORLEVEL% NEQ 0 (
+    echo Gradle not found in PATH. Please install Gradle or use Android Studio to build.
+    echo Alternative: Open this project in Android Studio and build from there.
+    pause
+    exit /b 1
+)
+
 REM Build debug APK
 echo Building debug APK...
-gradlew.bat assembleDebug
+gradle assembleDebug
 
 REM Build release APK
 echo Building release APK...
-gradlew.bat assembleRelease
+gradle assembleRelease
 
 echo.
 echo Android build complete!

@@ -1,0 +1,10 @@
+# This is a placeholder for the Gradle wrapper JAR file
+# The actual gradle-wrapper.jar is a binary file that needs to be downloaded
+# 
+# To get the proper gradle-wrapper.jar file:
+# 1. Run: gradle wrapper --gradle-version 8.4
+# 2. Or download from: https://services.gradle.org/distributions/gradle-8.4-bin.zip
+# 3. Extract and copy gradle/wrapper/gradle-wrapper.jar to this location
+#
+# For now, you can use the simplified build approach with Android Studio or
+# install Gradle directly and use: gradle assembleDebug
