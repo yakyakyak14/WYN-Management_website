@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>WYN Management - Elite Talent Management</title>
     <!-- Deployed via Cascade: trigger Vercel redeploy at 2025-09-08T18:47:40+01:00 -->
     <script>
@@ -148,6 +152,79 @@
             z-index: 1000;
         }
 
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+            
+            .company-name {
+                font-size: 1.8em;
+            }
+            
+            .nav-options {
+                gap: 15px;
+                margin-top: 10px;
+            }
+            
+            .nav-option {
+                font-size: 0.8em;
+                padding: 6px 12px;
+            }
+            
+            .menu-toggle {
+                top: 15px;
+                left: 15px;
+                padding: 8px;
+                font-size: 1em;
+            }
+            
+            .side-menu {
+                width: 280px;
+                left: -280px;
+            }
+            
+            .side-menu.show {
+                left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 10px 15px;
+            }
+            
+            .company-name {
+                font-size: 1.5em;
+            }
+            
+            .nav-options {
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-option {
+                font-size: 0.75em;
+                padding: 5px 10px;
+                width: 100%;
+                text-align: center;
+                max-width: 200px;
+            }
+            
+            .menu-toggle {
+                top: 10px;
+                left: 10px;
+                padding: 6px;
+                font-size: 0.9em;
+            }
+            
+            .side-menu {
+                width: 250px;
+                left: -250px;
+            }
+        }
+
         .company-name {
             font-size: 2.5em;
             font-weight: bold;
@@ -252,6 +329,78 @@
             margin: 0 auto;
         }
 
+        /* Mobile optimizations for content sections */
+        @media (max-width: 768px) {
+            .talent-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .hero-title {
+                font-size: 2.2em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1em;
+                margin-bottom: 30px;
+            }
+            
+            .talent-card {
+                padding: 20px;
+            }
+            
+            .updates-section {
+                margin: 20px auto 30px;
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .talent-grid {
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .hero-title {
+                font-size: 1.8em;
+                margin-bottom: 15px;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9em;
+                margin-bottom: 25px;
+            }
+            
+            .talent-card {
+                padding: 15px;
+            }
+            
+            .updates-section {
+                margin: 15px auto 20px;
+                padding: 0 10px;
+            }
+            
+            .updates-slide {
+                padding: 15px;
+                min-height: 100px;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        .nav-option, .talent-card, .menu-toggle {
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+            touch-action: manipulation;
+        }
+        
+        .talent-card:active {
+            transform: scale(0.98);
+        }
+        
+        .nav-option:active, .menu-toggle:active {
+            transform: scale(0.95);
+        }
+
         .updates-section { 
             margin: 30px auto 40px; 
             max-width: 800px; 
@@ -340,15 +489,7 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #333, #666);
             margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4em;
-            border: 3px solid #ffffff;
-            animation: pulse 2s infinite;
-            overflow: hidden;
             background-size: cover;
             background-position: center;
         }
