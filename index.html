@@ -933,11 +933,22 @@
             popup.style.height = h + 'px';
             popup.style.top = top + 'px';
             popup.style.left = left + 'px';
+            // apply transitions
+            popup.style.transition = 'opacity 200ms ease';
+            video.style.transition = 'transform 200ms ease';
+            popup.style.opacity = '0';
+            video.style.transform = 'scale(0.9)';
             popup.style.display = 'block';
+            requestAnimationFrame(function(){
+                popup.style.opacity = '1';
+                video.style.transform = 'scale(1)';
+            });
 
             try { video.currentTime = 0; video.play(); } catch(e){}
             video.onended = function(){
-                popup.style.display = 'none';
+                popup.style.opacity = '0';
+                video.style.transform = 'scale(0.9)';
+                setTimeout(function(){ popup.style.display = 'none'; }, 220);
                 video.onended = null;
             };
         }

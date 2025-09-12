@@ -194,8 +194,19 @@
       const top = margin;
       const left = vw - w - margin + window.scrollX;
       popup.style.cssText = `display:block; width:${w}px; height:${h}px; top:${top}px; left:${left}px;`;
+      // transitions
+      popup.style.transition = 'opacity 200ms ease';
+      video.style.transition = 'transform 200ms ease';
+      popup.style.opacity = '0';
+      video.style.transform = 'scale(0.9)';
+      requestAnimationFrame(()=>{ popup.style.opacity='1'; video.style.transform='scale(1)'; });
       try{ video.currentTime = 0; video.play(); }catch(e){}
-      video.onended = function(){ popup.style.display='none'; video.onended=null; };
+      video.onended = function(){
+        popup.style.opacity='0';
+        video.style.transform='scale(0.9)';
+        setTimeout(()=>{ popup.style.display='none'; }, 220);
+        video.onended=null;
+      };
     }
     function closeLogoModal(){
       const popup = document.getElementById('logoPopup');
