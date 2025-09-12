@@ -116,25 +116,30 @@
     © 2025 WYN Management. Elite Talent Management Excellence and Consulting.<br>
     Leadership: Hope Ukpai {SirHope} and Aisha Sambo {SHUSHI}.
   </footer>
-  <!-- Logo video modal -->
-  <div id="logoModal" class="logo-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:4000; align-items:center; justify-content:center; padding:20px;">
-    <div class="modal-inner" style="max-width:800px; width:100%; border:2px solid #fff; border-radius:12px; overflow:hidden; background:#000; position:relative;">
-      <button class="close-btn" onclick="closeLogoModal()" style="position:absolute; top:10px; right:12px; background:#fff; color:#000; border:none; border-radius:6px; padding:6px 10px; cursor:pointer; font-weight:700;">Close ✕</button>
-      <video id="logoVideo" src="../assets/videos/wyn-logo-animated.mp4" controls autoplay playsinline></video>
-    </div>
+  <!-- Logo video popup -->
+  <div id="logoPopup" class="logo-popup" style="display:none; position:fixed; z-index:3000; background:transparent; pointer-events:none;">
+    <button onclick="closeLogoModal()" aria-label="Close logo animation" style="position:absolute; top:-10px; right:-10px; background:#fff; color:#000; border:none; border-radius:14px; width:28px; height:28px; font-weight:700; cursor:pointer; pointer-events:auto; box-shadow:0 2px 6px rgba(0,0,0,0.4);">×</button>
+    <video id="logoVideo" src="../assets/videos/wyn-logo-animated.mp4" playsinline muted style="display:block; width:100%; height:auto;"></video>
   </div>
   <script>
     function openLogoModal(){
-      const m = document.getElementById('logoModal');
-      const v = document.getElementById('logoVideo');
-      if(m){ m.style.display = 'flex'; }
-      if(v){ v.currentTime = 0; v.play().catch(()=>{}); }
+      const img = document.querySelector('.site-brand img');
+      const popup = document.getElementById('logoPopup');
+      const video = document.getElementById('logoVideo');
+      if(!img || !popup || !video) return;
+      const rect = img.getBoundingClientRect();
+      const w = rect.width * 1.2; const h = rect.height * 1.2;
+      const top = rect.top + window.scrollY + (rect.height - h)/2;
+      const left = rect.left + window.scrollX + (rect.width - w)/2;
+      popup.style.cssText = `display:block; width:${w}px; height:${h}px; top:${top}px; left:${left}px;`;
+      try{ video.currentTime = 0; video.play(); }catch(e){}
+      video.onended = function(){ popup.style.display='none'; video.onended=null; };
     }
     function closeLogoModal(){
-      const m = document.getElementById('logoModal');
-      const v = document.getElementById('logoVideo');
-      if(v){ try{ v.pause(); }catch(e){} }
-      if(m){ m.style.display = 'none'; }
+      const popup = document.getElementById('logoPopup');
+      const video = document.getElementById('logoVideo');
+      if(video){ try{ video.pause(); }catch(e){} }
+      if(popup){ popup.style.display='none'; }
     }
   </script>
 </body>
