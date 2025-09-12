@@ -165,13 +165,6 @@
             pointer-events: none; /* do not block page interactions */
         }
         .logo-popup video { display:block; width: 100%; height: auto; }
-        .logo-popup .logo-close {
-            position: absolute; top: -10px; right: -10px;
-            background: #fff; color: #000; border: none; border-radius: 14px;
-            width: 28px; height: 28px; font-weight: 700; cursor: pointer;
-            pointer-events: auto; /* allow clicking close */
-            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-        }
 
         .menu-overlay.show {
             opacity: 1;
@@ -911,7 +904,6 @@
 
     <!-- Logo video popup -->
     <div id="logoPopup" class="logo-popup">
-        <button class="logo-close" onclick="closeLogoModal()">×</button>
         <video id="logoVideo" src="assets/videos/wyn-logo-animated.mp4" muted playsinline></video>
     </div>
 
@@ -925,8 +917,8 @@
             var rect = img.getBoundingClientRect();
             var w = rect.width * 3.0; // 300% of logo width
             var h = rect.height * 3.0;
-            var top = rect.top + window.scrollY + (rect.height - h) / 2;
-            var left = rect.left + window.scrollX + (rect.width - w) / 2;
+            var top = rect.top + window.scrollY;
+            var left = rect.left + window.scrollX;
 
             popup.style.width = w + 'px';
             popup.style.height = h + 'px';

@@ -126,7 +126,6 @@
   </footer>
   <!-- Logo video popup -->
   <div id="logoPopup" class="logo-popup">
-    <button onclick="closeLogoModal()" aria-label="Close logo animation" style="position:absolute; top:-10px; right:-10px; background:#fff; color:#000; border:none; border-radius:14px; width:28px; height:28px; font-weight:700; cursor:pointer; pointer-events:auto; box-shadow:0 2px 6px rgba(0,0,0,0.4);">×</button>
     <video id="logoVideo" src="../assets/videos/wyn-logo-animated.mp4" playsinline muted></video>
   </div>
   <script>
@@ -137,8 +136,8 @@
       if(!img || !popup || !video) return;
       const rect = img.getBoundingClientRect();
       const w = rect.width * 3.0; const h = rect.height * 3.0;
-      const top = rect.top + window.scrollY + (rect.height - h)/2;
-      const left = rect.left + window.scrollX + (rect.width - w)/2;
+      const top = rect.top + window.scrollY;
+      const left = rect.left + window.scrollX;
       popup.style.cssText = `display:block; width:${w}px; height:${h}px; top:${top}px; left:${left}px;`;
       try{ video.currentTime = 0; video.play(); }catch(e){}
       video.onended = function(){ popup.style.display='none'; video.onended=null; };
