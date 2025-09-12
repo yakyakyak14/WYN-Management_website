@@ -280,7 +280,16 @@
       video.style.transform = 'scale(0.9)';
       requestAnimationFrame(()=>{ popup.style.opacity='1'; video.style.transform='scale(1)'; });
       try{ video.currentTime = 0; video.play(); }catch(e){}
+      // slow to 0.75x and cap at 4s
+      try{ video.playbackRate = 0.75; }catch(e){}
+      if (video._logoTimer) { clearTimeout(video._logoTimer); }
+      video._logoTimer = setTimeout(()=>{
+        popup.style.opacity='0';
+        video.style.transform='scale(0.9)';
+        setTimeout(()=>{ popup.style.display='none'; }, 220);
+      }, 4000);
       video.onended = function(){
+        if (video._logoTimer) { clearTimeout(video._logoTimer); video._logoTimer = null; }
         popup.style.opacity='0';
         video.style.transform='scale(0.9)';
         setTimeout(()=>{ popup.style.display='none'; }, 220);

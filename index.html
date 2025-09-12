@@ -945,7 +945,16 @@
             });
 
             try { video.currentTime = 0; video.play(); } catch(e){}
+            // playback speed and 4s cap
+            try { video.playbackRate = 0.75; } catch(e){}
+            if (video._logoTimer) { clearTimeout(video._logoTimer); }
+            video._logoTimer = setTimeout(function(){
+                popup.style.opacity = '0';
+                video.style.transform = 'scale(0.9)';
+                setTimeout(function(){ popup.style.display = 'none'; }, 220);
+            }, 4000);
             video.onended = function(){
+                if (video._logoTimer) { clearTimeout(video._logoTimer); video._logoTimer = null; }
                 popup.style.opacity = '0';
                 video.style.transform = 'scale(0.9)';
                 setTimeout(function(){ popup.style.display = 'none'; }, 220);
