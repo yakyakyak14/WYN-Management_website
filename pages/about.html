@@ -140,7 +140,23 @@
       const left = rect.left + window.scrollX;
       popup.style.cssText = `display:block; width:${w}px; height:${h}px; top:${top}px; left:${left}px;`;
       try{ video.currentTime = 0; video.play(); }catch(e){}
-      video.onended = function(){ popup.style.display='none'; video.onended=null; };
+      // slow to 0.75x and cap at 4s
+      try{ video.playbackRate = 0.75; }catch(e){}
+      if (video._logoTimer) { clearTimeout(video._logoTimer); }
+      video._logoTimer = setTimeout(()=>{
+        popup.style.opacity='0';
+        video.style.transform='scale(0.9)';
+        setTimeout(()=>{ popup.style.display='none'; }, 220);
+      }, 4000);
+      video.onended = function(){
+        if (video._logoTimer) { clearTimeout(video._logoTimer); video._logoTimer = null; }
+        popup.style.opacity='0';
+        video.style.transform='scale(0.9)';
+        setTimeout(()=>{ popup.style.display='none'; }, 220);
+        video.onended=null;
+      };
+      // reset auto-play timer to 20s after any play trigger
+      scheduleLogoAutoPlay(20000);
     }
     function closeLogoModal(){
       const popup = document.getElementById('logoPopup');
@@ -148,6 +164,14 @@
       if(video){ try{ video.pause(); }catch(e){} }
       if(popup){ popup.style.display='none'; }
     }
+    // auto-play scheduler
+    let _logoAutoTimer;
+    function scheduleLogoAutoPlay(delayMs){
+      if (_logoAutoTimer) { clearTimeout(_logoAutoTimer); }
+      _logoAutoTimer = setTimeout(()=>{ openLogoModal(); }, delayMs);
+    }
+    // start auto-play on load
+    window.addEventListener('DOMContentLoaded', ()=>{ scheduleLogoAutoPlay(20000); });
   </script>
 </body>
 </html>

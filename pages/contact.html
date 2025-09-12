@@ -148,6 +148,8 @@
         setTimeout(()=>{ popup.style.display='none'; }, 220);
         video.onended=null;
       };
+      // reset auto-play timer to 20s after any play trigger
+      scheduleLogoAutoPlay(20000);
     }
     function closeLogoModal(){
       const popup = document.getElementById('logoPopup');
@@ -155,6 +157,14 @@
       if(video){ try{ video.pause(); }catch(e){} }
       if(popup){ popup.style.display='none'; }
     }
+    // auto-play scheduler
+    let _logoAutoTimer;
+    function scheduleLogoAutoPlay(delayMs){
+      if (_logoAutoTimer) { clearTimeout(_logoAutoTimer); }
+      _logoAutoTimer = setTimeout(()=>{ openLogoModal(); }, delayMs);
+    }
+    // start auto-play on load
+    window.addEventListener('DOMContentLoaded', ()=>{ scheduleLogoAutoPlay(20000); });
   </script>
 </body>
 </html>
