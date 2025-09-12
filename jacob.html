@@ -87,7 +87,9 @@
         <h1>Jacob Njoku</h1>
         <div class="meta">Born: 16 Nov 1997 • Position: Forward • Nationality: Nigeria</div>
         <div class="nav">
-          <a class="btn" href="https://www.transfermarkt.com/jacob-njoku/leistungsdaten/spieler/452336" target="_blank">Transfermarkt</a>
+          <a href="https://www.transfermarkt.com/jacob-njoku/leistungsdaten/spieler/452336" target="_blank" aria-label="View Jacob Njoku on Transfermarkt" style="display:inline-flex; align-items:center;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Transfermarkt_logo.svg/320px-Transfermarkt_logo.svg.png" alt="Transfermarkt logo" style="height:28px; width:auto; border-radius:4px; background:#fff; padding:2px;" />
+          </a>
         </div>
       </div>
     </div>
@@ -250,6 +252,7 @@
 
   <!-- Logo video popup -->
   <div id="logoPopup" class="logo-popup">
+    <button onclick="closeLogoModal()" aria-label="Close logo animation" style="position:absolute; top:-10px; right:-10px; background:#fff; color:#000; border:none; border-radius:14px; width:28px; height:28px; font-weight:700; cursor:pointer; pointer-events:auto; box-shadow:0 2px 6px rgba(0,0,0,0.4);">×</button>
     <video id="logoVideo" src="assets/videos/wyn-logo-animated.mp4" playsinline muted></video>
   </div>
   <script>
