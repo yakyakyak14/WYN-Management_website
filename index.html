@@ -156,35 +156,15 @@
             transition: all 0.3s ease;
         }
 
-        /* Logo Video Modal */
-        .logo-modal {
+        /* Logo small popup (non-blocking) */
+        .logo-popup {
             display: none;
             position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.9);
-            z-index: 4000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            z-index: 3000;
+            background: transparent;
+            pointer-events: none; /* do not block page interactions */
         }
-        .logo-modal.open { display: flex; }
-        .logo-modal .modal-inner {
-            max-width: 800px;
-            width: 100%;
-            border: 2px solid #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #000;
-            position: relative;
-        }
-        .logo-modal .close-btn {
-            position: absolute;
-            top: 10px; right: 12px;
-            background: #fff; color: #000; border: none;
-            border-radius: 6px; padding: 6px 10px; cursor: pointer;
-            font-weight: 700;
-        }
-        .logo-modal video { width: 100%; height: auto; display: block; }
+        .logo-popup video { display:block; width: 100%; height: auto; }
 
         .menu-overlay.show {
             opacity: 1;
@@ -922,26 +902,41 @@
         Leadership: Hope Ukpai {SirHope} and Aisha Sambo {SHUSHI}.
     </footer>
 
-    <!-- Logo video modal -->
-    <div id="logoModal" class="logo-modal">
-        <div class="modal-inner">
-            <button class="close-btn" onclick="closeLogoModal()">Close ✕</button>
-            <video id="logoVideo" src="assets/videos/wyn-logo-animated.mp4" controls autoplay playsinline></video>
-        </div>
+    <!-- Logo video popup -->
+    <div id="logoPopup" class="logo-popup">
+        <video id="logoVideo" src="assets/videos/wyn-logo-animated.mp4" muted playsinline></video>
     </div>
 
     <script>
         function openLogoModal() {
-            var m = document.getElementById('logoModal');
-            var v = document.getElementById('logoVideo');
-            if (m) m.classList.add('open');
-            if (v) { try { v.currentTime = 0; v.play(); } catch(e){} }
+            var img = document.querySelector('.site-brand img');
+            var popup = document.getElementById('logoPopup');
+            var video = document.getElementById('logoVideo');
+            if (!img || !popup || !video) return;
+
+            var rect = img.getBoundingClientRect();
+            var w = rect.width * 1.2; // 120% of logo width
+            var h = rect.height * 1.2;
+            var top = rect.top + window.scrollY + (rect.height - h) / 2;
+            var left = rect.left + window.scrollX + (rect.width - w) / 2;
+
+            popup.style.width = w + 'px';
+            popup.style.height = h + 'px';
+            popup.style.top = top + 'px';
+            popup.style.left = left + 'px';
+            popup.style.display = 'block';
+
+            try { video.currentTime = 0; video.play(); } catch(e){}
+            video.onended = function(){
+                popup.style.display = 'none';
+                video.onended = null;
+            };
         }
-        function closeLogoModal() {
-            var m = document.getElementById('logoModal');
-            var v = document.getElementById('logoVideo');
-            if (v) { try { v.pause(); } catch(e){} }
-            if (m) m.classList.remove('open');
+        function closeLogoModal(){
+            var popup = document.getElementById('logoPopup');
+            var video = document.getElementById('logoVideo');
+            if (video) { try { video.pause(); } catch(e){} }
+            if (popup) popup.style.display = 'none';
         }
     </script>
 
