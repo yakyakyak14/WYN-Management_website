@@ -12,7 +12,7 @@
   <style>
     /* Brand header (top-right) */
     .site-brand { position: fixed; top: 16px; right: 16px; display:flex; align-items:center; gap:10px; z-index:1000; }
-    .site-brand img { width:36px; height:36px; object-fit:contain; border-radius:6px; border:1px solid #ffffff55; background:#000000aa; }
+    .site-brand img { width:48px; height:48px; object-fit:contain; border-radius:6px; border:2px solid #ffffffaa; background:#000000dd; box-shadow:0 0 10px rgba(255,255,255,0.35); }
     .site-brand .brand-text { color:#fff; font-weight:700; letter-spacing:.5px; text-decoration:none; }
     body { font-family: Arial, sans-serif; margin:0; color:#fff; background: linear-gradient(135deg,#000,#1a1a1a); }
     .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
@@ -37,7 +37,7 @@
   </style>
 </head>
 <body>
-  <a class="site-brand" href="../index.html" aria-label="WYN Management Home">
+  <a class="site-brand" href="../index.html" aria-label="WYN Management Home" onclick="event.preventDefault(); openLogoModal();">
     <img src="../assets/images/wyn-logo.png" alt="WYN logo" />
   </a>
   <div class="container">
@@ -168,5 +168,26 @@
     © 2025 WYN Management. Elite Talent Management Excellence and Consulting.<br>
     Leadership: Hope Ukpai {SirHope} and Aisha Sambo {SHUSHI}.
   </footer>
+  <!-- Logo video modal -->
+  <div id="logoModal" class="logo-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:4000; align-items:center; justify-content:center; padding:20px;">
+    <div class="modal-inner" style="max-width:800px; width:100%; border:2px solid #fff; border-radius:12px; overflow:hidden; background:#000; position:relative;">
+      <button class="close-btn" onclick="closeLogoModal()" style="position:absolute; top:10px; right:12px; background:#fff; color:#000; border:none; border-radius:6px; padding:6px 10px; cursor:pointer; font-weight:700;">Close ✕</button>
+      <video id="logoVideo" src="../assets/videos/wyn-logo-animated.mp4" controls autoplay playsinline></video>
+    </div>
+  </div>
+  <script>
+    function openLogoModal(){
+      const m = document.getElementById('logoModal');
+      const v = document.getElementById('logoVideo');
+      if(m){ m.style.display = 'flex'; }
+      if(v){ v.currentTime = 0; v.play().catch(()=>{}); }
+    }
+    function closeLogoModal(){
+      const m = document.getElementById('logoModal');
+      const v = document.getElementById('logoVideo');
+      if(v){ try{ v.pause(); }catch(e){} }
+      if(m){ m.style.display = 'none'; }
+    }
+  </script>
 </body>
 </html>

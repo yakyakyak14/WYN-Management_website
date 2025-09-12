@@ -129,12 +129,13 @@
             gap: 10px;
         }
         .site-brand img {
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             object-fit: contain;
             border-radius: 6px;
-            border: 1px solid #ffffff55;
-            background: #000000aa;
+            border: 2px solid #ffffffaa;
+            background: #000000dd;
+            box-shadow: 0 0 10px rgba(255,255,255,0.35);
         }
 
         .menu-toggle:hover {
@@ -154,6 +155,36 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
+
+        /* Logo Video Modal */
+        .logo-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 4000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .logo-modal.open { display: flex; }
+        .logo-modal .modal-inner {
+            max-width: 800px;
+            width: 100%;
+            border: 2px solid #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            position: relative;
+        }
+        .logo-modal .close-btn {
+            position: absolute;
+            top: 10px; right: 12px;
+            background: #fff; color: #000; border: none;
+            border-radius: 6px; padding: 6px 10px; cursor: pointer;
+            font-weight: 700;
+        }
+        .logo-modal video { width: 100%; height: auto; display: block; }
 
         .menu-overlay.show {
             opacity: 1;
@@ -754,7 +785,7 @@
     <!-- Menu Toggle -->
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <!-- Brand Logo (links to home) -->
-    <a class="site-brand" href="index.html" aria-label="WYN Management Home">
+    <a class="site-brand" href="index.html" aria-label="WYN Management Home" onclick="event.preventDefault(); openLogoModal();">
         <img src="assets/images/wyn-logo.png" alt="WYN logo" />
     </a>
     
@@ -890,6 +921,29 @@
         &copy; 2025 WYN Management. Elite Talent Management Excellence and Consulting.<br>
         Leadership: Hope Ukpai {SirHope} and Aisha Sambo {SHUSHI}.
     </footer>
+
+    <!-- Logo video modal -->
+    <div id="logoModal" class="logo-modal">
+        <div class="modal-inner">
+            <button class="close-btn" onclick="closeLogoModal()">Close ✕</button>
+            <video id="logoVideo" src="assets/videos/wyn-logo-animated.mp4" controls autoplay playsinline></video>
+        </div>
+    </div>
+
+    <script>
+        function openLogoModal() {
+            var m = document.getElementById('logoModal');
+            var v = document.getElementById('logoVideo');
+            if (m) m.classList.add('open');
+            if (v) { try { v.currentTime = 0; v.play(); } catch(e){} }
+        }
+        function closeLogoModal() {
+            var m = document.getElementById('logoModal');
+            var v = document.getElementById('logoVideo');
+            if (v) { try { v.pause(); } catch(e){} }
+            if (m) m.classList.remove('open');
+        }
+    </script>
 
     <!-- Jacob Njoku Modal -->
     <div id="jacobModal" class="modal">
