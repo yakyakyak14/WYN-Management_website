@@ -152,9 +152,17 @@
       const video = document.getElementById('logoVideo');
       if(!img || !popup || !video) return;
       const rect = img.getBoundingClientRect();
-      const w = rect.width * 3.0; const h = rect.height * 3.0;
-      const top = rect.top + window.scrollY;
-      const left = rect.left + window.scrollX;
+      let w = rect.width * 3.0; let h = rect.height * 3.0;
+      const margin = 12;
+      const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      const maxW = vw - margin * 2;
+      const maxH = vh - margin * 2;
+      const scale = Math.min(1, maxW / w, maxH / h);
+      w = Math.max(1, w * scale);
+      h = Math.max(1, h * scale);
+      const top = margin;
+      const left = vw - w - margin + window.scrollX;
       popup.style.cssText = `display:block; width:${w}px; height:${h}px; top:${top}px; left:${left}px;`;
       try{ video.currentTime = 0; video.play(); }catch(e){}
       video.onended = function(){ popup.style.display='none'; video.onended=null; };

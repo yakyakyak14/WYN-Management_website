@@ -915,10 +915,19 @@
             if (!img || !popup || !video) return;
 
             var rect = img.getBoundingClientRect();
-            var w = rect.width * 3.0; // 300% of logo width
+            var w = rect.width * 3.0; // target 300%
             var h = rect.height * 3.0;
-            var top = rect.top + window.scrollY;
-            var left = rect.left + window.scrollX;
+            var margin = 12; // viewport margin
+            var vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            // Clamp within viewport (keep aspect ratio from logo rect)
+            var maxW = vw - margin * 2;
+            var maxH = vh - margin * 2;
+            var scale = Math.min(1, maxW / w, maxH / h);
+            w = Math.max(1, w * scale);
+            h = Math.max(1, h * scale);
+            var top = margin;
+            var left = vw - w - margin + window.scrollX;
 
             popup.style.width = w + 'px';
             popup.style.height = h + 'px';
